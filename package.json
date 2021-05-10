@@ -1,0 +1,25 @@
+{
+  "name": "chain-scan",
+  "version": "1.0.0",
+  "description": "barebones blockchain interactions for learning",
+  "main": "index.ts",
+  "scripts": {
+    "start": "npx tsc; node polka-scan.ts",
+    "build": "webpack --config webpack.config.js --mode production",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": "git@github.com:mentheosis/chain-scan.git",
+  "author": "Kris Winquist <mentheosis@gmail.com>",
+  "license": "GNU2.0",
+  "private": false,
+  "dependencies": {
+    "@polkadot/api": "^4.9.2"
+  },
+  "devDependencies": {
+    "typescript": "^4.2.4",
+    "ts-loader": "^7.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

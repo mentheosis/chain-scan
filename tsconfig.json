@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Node 15",
+
+  "compilerOptions": {
+    "lib": ["es2018","DOM"],
+    "module": "commonjs",
+    "target": "es2018",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
