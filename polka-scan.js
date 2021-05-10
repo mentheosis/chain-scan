@@ -20,23 +20,44 @@ async function main() {
     console.log(`You are connected to chain ${chain} using ${nodeName} v${nodeVersion}`);
     /*
       now read some blocks: https://polkadot.js.org/docs/api/examples/promise/listen-to-blocks
+      Subscribe to the new headers on-chain. The callback is fired when new headers
+      are found, the call itself returns a promise with a subscription that can be
+      used to unsubscribe from the newHead subscription
     */
     console.log("subscribing for new blocks");
     // We only display a couple, then unsubscribe
     let count = 0;
-    // Subscribe to the new headers on-chain. The callback is fired when new headers
-    // are found, the call itself returns a promise with a subscription that can be
-    // used to unsubscribe from the newHead subscription
-    const unsubscribe = await api.rpc.chain.subscribeNewHeads((header) => {
+    const unsubscribeHeads = await api.rpc.chain.subscribeNewHeads((header) => {
         console.log(`Chain is at block: #${header.number}`);
-        console.log(`Block header data: #${JSON.stringify(header, null, 2)}`);
+        //console.log(`Block header data: #${JSON.stringify(header,null,2)}`);
         if (++count === 256) {
-            unsubscribe();
+            unsubscribeHeads();
             process.exit(0);
         }
+    });
+    /*
+      Subscribe to system events via storage
+      https://polkadot.js.org/docs/api/examples/promise/system-events
+    */
+    api.query.system.events((events) => {
+        console.log(`\nReceived ${events.length} events:`);
+        // Loop through the Vec<EventRecord>
+        events.forEach((record) => {
+            // Extract the phase, event and the event types
+            const { event, phase } = record;
+            const types = event.typeDef;
+            // Show what we are busy with
+            console.log(`\t${event.section}:${event.method}:: (phase=${phase.toString()})`);
+            console.log(`\t\t${event.meta.documentation.toString()}`);
+            // Loop through each of the parameters, displaying the type and data
+            event.data.forEach((data, index) => {
+                console.log(`\t\t\t${types[index].type}: ${data.toString()}`);
+            });
+        });
     });
 }
 main().catch((e) => {
     console.log("caught");
     console.error(e);
+    process.exit(-1);
 }); //.finally(() => process.exit());
