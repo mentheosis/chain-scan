@@ -13,7 +13,7 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 build/
 
 # py env stuff
-cspy-env/
+cspy-env
 
 # Runtime data
 pids
