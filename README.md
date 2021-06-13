@@ -1,10 +1,7 @@
 # chain-scan
 A bare-bones playground for getting some raw data from various kinds of Blockchains  
 
-## usage
-install with 'yarn'  
-then 'yarn run xyz' to play with the scripts from the package.json  
-
+# Notes
 ## Ethereum:
 sweet blog on chain data: https://medium.com/coinmonks/defi-protocol-data-how-to-query-618c934dbbe2
 

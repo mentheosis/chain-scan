@@ -1,0 +1,3 @@
+# to run, call by using .
+# e.g: . ./activate-env
+source cspy-env/bin/activate
