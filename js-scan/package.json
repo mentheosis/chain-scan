@@ -4,7 +4,8 @@
   "description": "barebones blockchain interactions for learning",
   "main": "index.ts",
   "scripts": {
-    "start": "npx tsc; node ./build/polka-scan.js",
+    "polka": "npx tsc; node ./build/polka-scan.js",
+    "graph": "npx tsc; node ./build/the-graph.js",
     "build": "webpack --config webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
