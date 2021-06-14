@@ -6,6 +6,7 @@ build/
 cspy-env
 __pycache__/
 run_py_scan.sh
+eth.db
 
 #### stuff that was in this default ignore file:
 

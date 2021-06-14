@@ -6,6 +6,6 @@ infura_id = os.getenv('WEB3_INFURA_PROJECT_ID')
 infura_secret = os.getenv('WEB3_INFURA_API_SECRET')
 
 scanner = EthScanner(infura_id, infura_secret, db_file_path)
-scanner.fillInBlocksForward()
+scanner.fillBlocksForward()
 
 print("done")
