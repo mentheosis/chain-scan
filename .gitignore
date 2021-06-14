@@ -4,6 +4,7 @@ build/
 
 # py env stuff
 cspy-env
+__pycache__/
 run_py_scan.sh
 
 #### stuff that was in this default ignore file:
