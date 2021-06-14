@@ -6,7 +6,6 @@
   "scripts": {
     "polka": "npx tsc; node ./build/polka-scan.js",
     "graph": "npx tsc; node ./build/the-graph.js",
-    "build": "webpack --config webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": "git@github.com:mentheosis/chain-scan.git",

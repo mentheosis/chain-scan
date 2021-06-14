@@ -1,9 +1,10 @@
-import os, json
+import os, json, sys
 from web3 import Web3
 from gql import gql, Client
 from gql.transport.requests import RequestsHTTPTransport
 from hexbytes import HexBytes
 from sql.sql_client import SqlLiteClient
+from ether.eth_scanner import EthScanner
 
 class HexJsonEncoder(json.JSONEncoder):
     def default(self, obj):
@@ -17,6 +18,14 @@ def formatNice(obj):
 db_file_path = './eth.db'
 infura_id = os.getenv('WEB3_INFURA_PROJECT_ID')
 infura_secret = os.getenv('WEB3_INFURA_API_SECRET')
+
+scanner = EthScanner(infura_id, infura_secret, db_file_path)
+scanner.fillInBlocksForward()
+
+print("done")
+sys.exit("exited")
+
+
 w3 = Web3(Web3.WebsocketProvider(f'wss://:{infura_secret}@mainnet.infura.io/ws/v3/{infura_id}'))
 
 with SqlLiteClient(db_file_path) as sql:
