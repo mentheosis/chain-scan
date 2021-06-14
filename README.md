@@ -1,6 +1,10 @@
 # chain-scan
 A bare-bones playground for getting some raw data from various kinds of Blockchains  
 
+2021-06-13: The file py-scan/scan.py is the most fun one in here at the moment. It will load eth blocks into a sqlite db
+and attempt to decode underlying contracts (although the graph GRT is the only ABI included right now)  
+todo: make the chain asyncrounously pull all historal blocks in batches too
+
 # Notes
 ## Ethereum:
 sweet blog on chain data: https://medium.com/coinmonks/defi-protocol-data-how-to-query-618c934dbbe2
